@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  spring-api-bus:
+    image: spring-api-bus
+    container_name: spring-api-buses
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8085"
+    networks:
+      - spring-network
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql
+    container_name: mysql_busesdb
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: bd_buses
+      MYSQL_USER: sperezp
+      MYSQL_PASSWORD: 150919
+    ports:
+      - "3307:3306"
+    networks:
+      - spring-network
+    volumes:
+      - mysql-volume:/var/lib/mysql 
+
+networks:
+  spring-network: 
+
+volumes:
+  mysql-volume:
