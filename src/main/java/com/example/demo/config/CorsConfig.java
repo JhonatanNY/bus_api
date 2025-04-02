@@ -14,7 +14,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // Permite todas las rutas
-                        .allowedOrigins("bus-site-example.netlify.app","http://localhost:5173") // Reemplaza con la URL de tu Netlify
+                        .allowedOrigins("https://bus-site-example.netlify.app/","http://localhost:5173") // Reemplaza con la URL de tu Netlify
                         .allowedMethods("GET", "POST", "PUT", "DELETE") // Métodos permitidos
                         .allowedHeaders("*") // Permite todos los headers
                         .allowCredentials(true);
